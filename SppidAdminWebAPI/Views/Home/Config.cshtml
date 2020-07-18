@@ -14,6 +14,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
@@ -23,7 +26,10 @@
             @Html.DisplayNameFor(model => model.IniPath)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SiteDataBase)
+            @Html.DisplayNameFor(model => model.DatabaseType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteDatabase)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PlantDatabase)
@@ -35,32 +41,41 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IniPath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SiteDataBase)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlantDatabase)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Port)
-        </td>
-        <td>
-            (TODO)
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+<tr>
+    
+    <td>
+        @Html.DisplayFor(modelitem => item.Id);
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IniPath)
+    </td>
+    <td>
+        @Html.EnumDropDownListFor(modelItem => item.DatabaseType)
+        @Html.ValidationMessageFor(modelItem => item.DatabaseType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SiteDatabase)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PlantDatabase)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Port)
+    </td>
+    <td>
+        (TODO)
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
 }
 
 </table>

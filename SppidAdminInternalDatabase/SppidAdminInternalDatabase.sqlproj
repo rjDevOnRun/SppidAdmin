@@ -61,4 +61,7 @@
   <ItemGroup>
     <Build Include="dbo\Projects.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SppidAdminInternalDatabase.publish.xml" />
+  </ItemGroup>
 </Project>

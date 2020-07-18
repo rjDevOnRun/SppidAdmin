@@ -1,4 +1,5 @@
 ﻿using SppidAdminWebAPI.Models;
+using SppidAdminWebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,19 +38,21 @@ namespace SppidAdminWebAPI.Controllers
         {
             ViewBag.Title = "Configure SPPID Plant Details";
 
-            Project demoProject = new Project()
-            {
-                Name = "Demo Project",
-                Description = "A demo sppid project description",
-                IniPath = @"\\SppidServer\SppidProjectFolder",
-                DatabaseType = SppidAdminGlobals.Enums.DatabaseType.Oracle,
-                SiteDataBase = "Site Database Name",
-                PlantDatabase = "Plant Database Name",
-                Port = 1521
-            };
+            //Project demoProject = new Project()
+            //{
+            //    Name = "Demo Project",
+            //    Description = "A demo sppid project description",
+            //    IniPath = @"\\SppidServer\SppidProjectFolder",
+            //    DatabaseType = SppidAdminGlobals.Enums.DatabaseType.Oracle,
+            //    SiteDataBase = "Site Database Name",
+            //    PlantDatabase = "Plant Database Name",
+            //    Port = 1521
+            //};
 
             List<Project> SppidProjects = new List<Project>();
-            SppidProjects.Add(demoProject);
+            //SppidProjects.Add(demoProject);
+
+            SppidProjects = ProjectViewModel.GetProjects();
 
             return View(SppidProjects);
         }

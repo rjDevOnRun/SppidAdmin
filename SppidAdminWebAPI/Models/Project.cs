@@ -11,6 +11,9 @@ namespace SppidAdminWebAPI.Models
 {
     public class Project
     {
+        [DisplayName("Id")]
+        public int Id { get; set; }
+
         [DisplayName("Name")]
         public string Name { get; set; }
 
@@ -24,7 +27,7 @@ namespace SppidAdminWebAPI.Models
         public DatabaseType DatabaseType { get; set; }
 
         [DisplayName("Database Name")]
-        public string SiteDataBase { get; set; }
+        public string SiteDatabase { get; set; }
 
         [DisplayName("Plant Db (SqlServer)")]
         public string PlantDatabase { get; set; }
