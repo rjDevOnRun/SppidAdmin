@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SppidAdminDTO.Models;
+using SppidAdminWebAPI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,11 +11,24 @@ namespace SppidAdminWebAPI.Controllers
 {
     public class ProjectController : ApiController
     {
-        // GET: api/Project
+        //GET: api/Project
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
+
+
+        [HttpGet]
+        [Route("api/Project/AllProjects")]
+        public List<Project> AllProjects()
+        {
+            List<Project> SppidProjects = new List<Project>();
+            SppidProjects = ProjectViewModel.GetProjects();
+
+            return SppidProjects;
+        }
+
+
 
         // GET: api/Project/5
         public string Get(int id)

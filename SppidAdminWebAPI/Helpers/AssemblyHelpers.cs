@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Reflection;
+using System.Web;
 
 namespace SppidAdminWebAPI.Helpers
 {
@@ -39,7 +41,7 @@ namespace SppidAdminWebAPI.Helpers
                         else if (pro.PropertyType.IsEnum)
                         {
                             object enumValue = Enum.Parse(pro.PropertyType, dr[column.ColumnName].ToString());
-                            if(enumValue.GetType().Equals(pro.PropertyType))
+                            if (enumValue.GetType().Equals(pro.PropertyType))
                                 pro.SetValue(obj, enumValue, null);
                         }
                         else

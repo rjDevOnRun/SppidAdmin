@@ -1,6 +1,6 @@
-﻿using SppidAdminWebAPI.DataRepository;
+﻿using SppidAdminDTO.Models;
+using SppidAdminWebAPI.DataRepository;
 using SppidAdminWebAPI.Helpers;
-using SppidAdminWebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,9 +14,9 @@ namespace SppidAdminWebAPI.ViewModels
         public static List<Project> GetProjects()
         {
             DataTable dt = ProjectRepository.GetProjectsFromDatabase();
-            
+
             List<Project> projects = new List<Project>();
-            
+
             projects = AssemblyHelpers.ConvertDataTable<Project>(dt);
 
             return projects;

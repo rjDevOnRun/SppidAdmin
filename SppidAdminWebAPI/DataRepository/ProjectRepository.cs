@@ -10,7 +10,6 @@ namespace SppidAdminWebAPI.DataRepository
 {
     public class ProjectRepository
     {
-
         internal static DataTable GetProjectsFromDatabase()
         {
             // Get Connection String to DB
@@ -48,6 +47,5 @@ namespace SppidAdminWebAPI.DataRepository
                 return dt;
             }
         }
-
     }
 }

@@ -7,14 +7,9 @@ using System.Web.Http;
 
 namespace SppidAdminWebAPI.Controllers
 {
-    [Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
-        /// <summary>
-        /// Display the summary details of Items
-        /// </summary>
-        /// <returns></returns>
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -27,12 +22,12 @@ namespace SppidAdminWebAPI.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

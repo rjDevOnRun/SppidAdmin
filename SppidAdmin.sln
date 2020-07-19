@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminWebAPI", "SppidAdminWebAPI\SppidAdminWebAPI.csproj", "{A752C98F-7B94-46A5-BC31-0658FAA89AB9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminWebAPI.Tests", "SppidAdminWebAPI.Tests\SppidAdminWebAPI.Tests.csproj", "{D101861E-8B55-47C3-9A12-FC26289F39FA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminDataAccess", "SppidAdminDataAccess\SppidAdminDataAccess.csproj", "{D3C4D452-8F47-4F61-A251-ADA01502048B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminGlobals", "SppidAdminGlobals\SppidAdminGlobals.csproj", "{18ECEDEC-8D41-4AE1-B9CD-1425B79EE818}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SppidAdminInternalDatabase", "SppidAdminInternalDatabase\SppidAdminInternalDatabase.sqlproj", "{59DB9773-3DC3-470B-AD05-DAD6417EE5B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminDTO", "SppidAdminDTO\SppidAdminDTO.csproj", "{A3078E91-BD0E-439F-80BF-891BBA52CE03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminWebAPI", "SppidAdminWebAPI\SppidAdminWebAPI.csproj", "{6E0EAB8E-0B15-4188-A8B2-9A53042FD1FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SppidAdminWebSite", "SppidAdminWebSite\SppidAdminWebSite.csproj", "{395BB12C-641A-4D70-9C12-89983E90E263}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A752C98F-7B94-46A5-BC31-0658FAA89AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A752C98F-7B94-46A5-BC31-0658FAA89AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A752C98F-7B94-46A5-BC31-0658FAA89AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A752C98F-7B94-46A5-BC31-0658FAA89AB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D101861E-8B55-47C3-9A12-FC26289F39FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D101861E-8B55-47C3-9A12-FC26289F39FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D101861E-8B55-47C3-9A12-FC26289F39FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D101861E-8B55-47C3-9A12-FC26289F39FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3C4D452-8F47-4F61-A251-ADA01502048B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3C4D452-8F47-4F61-A251-ADA01502048B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3C4D452-8F47-4F61-A251-ADA01502048B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +35,18 @@ Global
 		{59DB9773-3DC3-470B-AD05-DAD6417EE5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59DB9773-3DC3-470B-AD05-DAD6417EE5B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59DB9773-3DC3-470B-AD05-DAD6417EE5B6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A3078E91-BD0E-439F-80BF-891BBA52CE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3078E91-BD0E-439F-80BF-891BBA52CE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3078E91-BD0E-439F-80BF-891BBA52CE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3078E91-BD0E-439F-80BF-891BBA52CE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0EAB8E-0B15-4188-A8B2-9A53042FD1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0EAB8E-0B15-4188-A8B2-9A53042FD1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0EAB8E-0B15-4188-A8B2-9A53042FD1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0EAB8E-0B15-4188-A8B2-9A53042FD1FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{395BB12C-641A-4D70-9C12-89983E90E263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395BB12C-641A-4D70-9C12-89983E90E263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395BB12C-641A-4D70-9C12-89983E90E263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395BB12C-641A-4D70-9C12-89983E90E263}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
