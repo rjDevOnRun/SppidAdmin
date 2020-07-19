@@ -16,17 +16,17 @@ namespace SppidAdminWebAPI.DataRepository
         internal static DataTable GetPlantItemsFromDatabase(ItemType item)
         {
             // Get Connection String to DB
-            //var connectionString = ConfigurationManager.ConnectionStrings["SpAdminDB"].ToString();
             var connectionString = "user id = system; password = Oracle01; Data source = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = RJDELL)(PORT = 1521))(CONNECT_DATA = (SERVICE_NAME = SPPIDORCL)))";
 
             // Build Query (PlantItem - (4):PipeRun Type)
             var sqlQuery = $"select * from SPPIDPLANTPID.t_plantitem pl where pl.plantitemtype = {(int)item} and rownum < 100";
 
-            DataTable dt = new DataTable();
-            dt = OracleDb.LoadData(connectionString, sqlQuery);
+            // Get Data
+            OracleDb oracleDb = new OracleDb();
+            DataTable dataTable = new DataTable();
+            dataTable = oracleDb.LoadData(connectionString, sqlQuery);
 
-            return dt;
-
+            return dataTable;
         }
     }
 }

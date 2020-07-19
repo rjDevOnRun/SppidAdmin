@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SppidAdminDataAccess.Types;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -18,34 +19,13 @@ namespace SppidAdminWebAPI.DataRepository
             // Build an Insert Query (with parameters)
             var sqlQuery = $"SELECT * FROM SpAdminDb.dbo.Projects";
 
-            // Init
-            SqlConnection sqlConnection = null;
-            DataTable dt = new DataTable();
-            try
-            {
-                // Establish connection (will dispose automatically)
-                using (sqlConnection = new SqlConnection(connectionString))
-                {
-                    // Open connection
-                    sqlConnection.Open();
+            // Get Data
+            SqlServerDb sqlDb = new SqlServerDb();
+            DataTable dataTable = new DataTable();
 
-                    // Init Command
-                    SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
+            dataTable = sqlDb.LoadData(connectionString, sqlQuery);
 
-                    // Execute the Query
-                    IDataReader dr = sqlCommand.ExecuteReader();
-
-                    dt.Load(dr, LoadOption.OverwriteChanges);
-                    dr.Close();
-
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print(ex.Message + ex.StackTrace);
-                return dt;
-            }
+            return dataTable;
         }
     }
 }

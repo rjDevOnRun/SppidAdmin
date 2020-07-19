@@ -17,29 +17,12 @@ namespace SppidAdminDataAccess.Types
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }
 
-        public List<T> LoadData<T>(string sql)
-        {
-
-
-
-            return new List<T>();
-        }
-
-        public int SaveData<T>(string sql)
-        {
-            return 0;
-        }
-
-
-        public static DataTable LoadData(string connectionString, string sqlQuery)
+        public DataTable LoadData(string connectionString, string sqlQuery)
         {
             // ref: https://errorin10.wordpress.com/2017/04/11/using-oracle-managed-data-access-in-asp-net-and-c/
             DataTable dataTable = new DataTable();
             try
             {
-                //// Build Query (PlantItem - (4):PipeRun Type)
-                //var sqlQuery = $"select * from SPPIDPLANTPID.t_plantitem pl where pl.plantitemtype = 4 and rownum < 100";
-
                 // Init
                 using (OracleConnection connection = new OracleConnection())
                 {
@@ -51,8 +34,6 @@ namespace SppidAdminDataAccess.Types
                     OracleDataReader reader = oracleCommand.ExecuteReader();
                     
                     dataTable.Load(reader);
-
-
                 }
                 return dataTable;
             }

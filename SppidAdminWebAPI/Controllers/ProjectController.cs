@@ -17,7 +17,6 @@ namespace SppidAdminWebAPI.Controllers
             return new string[] { "value1", "value2" };
         }
 
-
         [HttpGet]
         [Route("api/Project/AllProjects")]
         public List<Project> AllProjects()
@@ -27,8 +26,6 @@ namespace SppidAdminWebAPI.Controllers
 
             return SppidProjects;
         }
-
-
 
         // GET: api/Project/5
         public string Get(int id)

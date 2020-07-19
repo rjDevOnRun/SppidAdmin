@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SppidAdminDTO.Models;
 using SppidAdminGlobals;
+using SppidAdminWebSite.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,35 +17,21 @@ namespace SppidAdminWebSite.ViewModels
     {
         internal static async Task<List<PlantItem>> GetPlantItemsAsync()
         {
-            List<PlantItem> projects = new List<PlantItem>();
+            List<PlantItem> plantItems = new List<PlantItem>();
 
             try
             {
-                var webClient = new HttpClient();
+                plantItems = ApiHelper.LoadDataFromAPI<PlantItem>
+                               (Constants.API_BaseAddress_SpItem,
+                               "GetPipeRuns", "application/json");
 
-                webClient.BaseAddress = new Uri(Constants.API_BaseAddress_SpItem);
-                webClient.DefaultRequestHeaders.Clear();
-                webClient.DefaultRequestHeaders.Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                HttpResponseMessage httpResponse = webClient.GetAsync("GetPipeRuns").Result;
-
-                if (httpResponse.IsSuccessStatusCode == false) return projects;
-
-                var jsonResultFromAPI = httpResponse.Content.ReadAsStringAsync();
-
-                var jsonConvertedToObjects = JsonConvert.DeserializeObject<List<PlantItem>>
-                                                            (jsonResultFromAPI.Result);
-                projects.AddRange(jsonConvertedToObjects);
-
-                return projects;
+                return plantItems;
 
             }
             catch (Exception ex)
             {
                 Debug.Print(ex.Message + ex.StackTrace);
-                return projects;
+                return plantItems;
             }
         }
     }

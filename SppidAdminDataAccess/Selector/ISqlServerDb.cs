@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace SppidAdminDataAccess.Selector
 {
     public interface ISqlServerDb
     {
         string GetConnectionString(string connectionName);
-        List<T> LoadData<T>(string sql);
-        int SaveData<T>(string sql);
+
+        DataTable LoadData(string connectionString, string sqlQuery);
     }
 }

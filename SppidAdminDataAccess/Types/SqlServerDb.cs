@@ -17,16 +17,36 @@ namespace SppidAdminDataAccess.Types
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }
 
-        public List<T> LoadData<T>(string sql)
+        public DataTable LoadData(string connectionString, string sqlQuery)
         {
+            // Init
+            SqlConnection sqlConnection = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                // Establish connection (will dispose automatically)
+                using (sqlConnection = new SqlConnection(connectionString))
+                {
+                    // Open connection
+                    sqlConnection.Open();
 
-            return new List<T>();
-        }
+                    // Init Command
+                    SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
 
-        public int SaveData<T>(string sql)
-        {
+                    // Execute the Query
+                    IDataReader dr = sqlCommand.ExecuteReader();
 
-            return 0;
+                    dataTable.Load(dr, LoadOption.OverwriteChanges);
+                    dr.Close();
+
+                }
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.Message + ex.StackTrace);
+                return dataTable;
+            }
         }
 
 
