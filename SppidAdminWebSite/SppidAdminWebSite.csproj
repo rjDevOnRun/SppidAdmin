@@ -121,11 +121,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectManagerController.cs" />
+    <Compile Include="Controllers\SpItemManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ProjectManagerViewModel.cs" />
+    <Compile Include="ViewModels\SpItemManagerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -267,10 +269,13 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\ProjectManager\ViewProjects.cshtml" />
+    <Content Include="Views\SpItemManager\ViewPipeRuns.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\PlantItemManager\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -287,6 +292,10 @@
     <ProjectReference Include="..\SppidAdminDTO\SppidAdminDTO.csproj">
       <Project>{A3078E91-BD0E-439F-80BF-891BBA52CE03}</Project>
       <Name>SppidAdminDTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SppidAdminGlobals\SppidAdminGlobals.csproj">
+      <Project>{18ECEDEC-8D41-4AE1-B9CD-1425B79EE818}</Project>
+      <Name>SppidAdminGlobals</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

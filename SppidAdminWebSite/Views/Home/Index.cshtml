@@ -4,23 +4,26 @@
 
 <div class="jumbotron">
     <h1>SPPID Admin WebSite</h1>
-    <p class="lead">Web Page for SPPID Admins to monitor summary of SPPID Items.</p>
-    <p></p>
+    <p class="lead">Web Page for SPPID Admins to monitor SPPID Items.</p>
+    @*<p></p>
     <h2>User Name: @User.Identity.Name</h2>
     <h2>User Auth: @User.Identity.IsAuthenticated</h2>
-    <h2>User AuthType: @User.Identity.AuthenticationType</h2>
+    <h2>User AuthType: @User.Identity.AuthenticationType</h2>*@
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Project Summary Page</h2>
-        <p>Displays summary information about each Sppid Item Types</p>
+        <h2>Project Page</h2>
+        <p>Display info of Available Sppid Projects</p>
+        <p>Allows to configure the Sppid Project [ToDo]</p>
+        <p>Choose SPPID Project to log/connect [ToDo]</p>
+        <p>Add / Modify / Delete projects [ToDo]</p>
     </div>
 
     <div class="col-md-4">
-        <h2>Configure</h2>
-        <p>Allows to configure the Sppid Project</p>
-        <p>Choose SPPID Project to log/connect.</p>
-        <p>Add / Modify / Delete projects</p>
+        <h2>PlantItem Page</h2>
+        <p>Display PipeRuns (limited to < 100)</p>
+        <p>Display all PlantItems [ToDo]</p>
+        <p>Display PlantItem by Type [ToDo]</p>
     </div>
 </div>

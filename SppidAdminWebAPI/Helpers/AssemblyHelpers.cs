@@ -30,7 +30,11 @@ namespace SppidAdminWebAPI.Helpers
                 {
                     if (pro.Name == column.ColumnName)
                     {
-                        if (pro.PropertyType == typeof(bool))
+                        if(string.IsNullOrWhiteSpace(dr[column.ColumnName].ToString()))
+                        {
+                            pro.SetValue(obj, "", null);
+                        }
+                        else if (pro.PropertyType == typeof(bool))
                         {
                             pro.SetValue(obj, (bool)dr[column.ColumnName], null);
                         }

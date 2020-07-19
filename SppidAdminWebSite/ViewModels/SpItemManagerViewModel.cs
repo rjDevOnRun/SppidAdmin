@@ -12,34 +12,29 @@ using System.Web;
 
 namespace SppidAdminWebSite.ViewModels
 {
-    public class ProjectManagerViewModel
+    public class SpItemManagerViewModel
     {
-        public static async Task<List<Project>> GetAllProjectsAsync()
+        internal static async Task<List<PlantItem>> GetPlantItemsAsync()
         {
-            return await GetProjectFromAPI();
-        }
-
-        private async static Task<List<Project>> GetProjectFromAPI()
-        {
-            List<Project> projects = new List<Project>();
+            List<PlantItem> projects = new List<PlantItem>();
 
             try
             {
                 var webClient = new HttpClient();
 
-                webClient.BaseAddress = new Uri(Constants.API_BaseAddress_Project);
+                webClient.BaseAddress = new Uri(Constants.API_BaseAddress_SpItem);
                 webClient.DefaultRequestHeaders.Clear();
                 webClient.DefaultRequestHeaders.Accept
                     .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                HttpResponseMessage httpResponse = webClient.GetAsync("AllProjects").Result;
+                HttpResponseMessage httpResponse = webClient.GetAsync("GetPipeRuns").Result;
 
                 if (httpResponse.IsSuccessStatusCode == false) return projects;
 
                 var jsonResultFromAPI = httpResponse.Content.ReadAsStringAsync();
 
-                var jsonConvertedToObjects = JsonConvert.DeserializeObject<List<Project>>
+                var jsonConvertedToObjects = JsonConvert.DeserializeObject<List<PlantItem>>
                                                             (jsonResultFromAPI.Result);
                 projects.AddRange(jsonConvertedToObjects);
 

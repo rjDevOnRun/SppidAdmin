@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SppidAdminDTO.Models.PlantItem>
+
+@{
+    ViewBag.Title = "ViewPipeRuns";
+}
+
+<p></p>
+<p></p>
+<h2>Pipe Runs List (limt < 100)</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SP_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITEMTAG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PLANTITEMTYPE)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SP_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ITEMTAG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PLANTITEMTYPE)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+
+</table>
